@@ -32,9 +32,9 @@ public class LC974_SubarraySumsDivisibleByK {
                     remainder = remainder + k;
                 }
 
-                Integer prevRemainder = map.getOrDefault(remainder, 0);
-                count = count + prevRemainder;
-                map.put(remainder, prevRemainder + 1);
+                Integer freq = map.getOrDefault(remainder, 0);
+                count = count + freq;
+                map.put(remainder, freq + 1);
             }
 
             return count;
