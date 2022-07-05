@@ -5,7 +5,7 @@ package array.prefix_sum;
  * @link https://leetcode.com/problems/maximum-subarray/
  * @since 2022/06/26 21:25:22
  */
-public class L53_MaximumSubarray {
+public class LC53_MaximumSubarray {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
