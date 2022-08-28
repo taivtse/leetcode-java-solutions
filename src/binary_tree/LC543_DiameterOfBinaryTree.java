@@ -11,32 +11,32 @@ import static utils.TreeBuilder.buildBinaryTree;
  */
 public class LC543_DiameterOfBinaryTree {
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.diameterOfBinaryTree(buildBinaryTree(1, 2, 3, 4, 5)));
-        System.out.println(solution.diameterOfBinaryTree(buildBinaryTree(1, 2)));
+  public static void main(String[] args) {
+    Solution solution = new Solution();
+    System.out.println(solution.diameterOfBinaryTree(buildBinaryTree(1, 2, 3, 4, 5)));
+    System.out.println(solution.diameterOfBinaryTree(buildBinaryTree(1, 2)));
+  }
+
+  // n: nodes
+  // Space Complexity: O(n)
+  // Time Complexity: O(n)
+  private static class Solution {
+    private int maxDiameter = 0;
+
+    public int diameterOfBinaryTree(TreeNode node) {
+      maxDiameter = 0;
+      calculateDiameter(node);
+      return maxDiameter;
     }
 
-    // n: nodes
-    // Space Complexity: O(n)
-    // Time Complexity: O(n)
-    private static class Solution {
-        private int maxDiameter = 0;
-
-        public int diameterOfBinaryTree(TreeNode node) {
-            maxDiameter = 0;
-            calculateDiameter(node);
-            return maxDiameter;
-        }
-
-        private int calculateDiameter(TreeNode node) {
-            if (node == null) {
-                return 0;
-            }
-            int maxHeightLeft = calculateDiameter(node.left);
-            int maxHeightRight = calculateDiameter(node.right);
-            maxDiameter = Math.max(maxDiameter, maxHeightLeft + maxHeightRight);
-            return Math.max(maxHeightLeft, maxHeightRight) + 1;
-        }
+    private int calculateDiameter(TreeNode node) {
+      if (node == null) {
+        return 0;
+      }
+      int maxHeightLeft = calculateDiameter(node.left);
+      int maxHeightRight = calculateDiameter(node.right);
+      maxDiameter = Math.max(maxDiameter, maxHeightLeft + maxHeightRight);
+      return Math.max(maxHeightLeft, maxHeightRight) + 1;
     }
+  }
 }

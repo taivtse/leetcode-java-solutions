@@ -9,33 +9,33 @@ import java.util.Arrays;
  */
 public class LC370_RangeAddition {
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.getModifiedArray(5, new int[][]{{1, 3, 2}, {2, 4, 3}, {0, 2, -2}})));
-        System.out.println(Arrays.toString(solution.getModifiedArray(10, new int[][]{{2, 4, 6}, {5, 6, 8}, {1, 9, -4}})));
-    }
+  public static void main(String[] args) {
+    Solution solution = new Solution();
+    System.out.println(Arrays.toString(solution.getModifiedArray(5, new int[][]{{1, 3, 2}, {2, 4, 3}, {0, 2, -2}})));
+    System.out.println(Arrays.toString(solution.getModifiedArray(10, new int[][]{{2, 4, 6}, {5, 6, 8}, {1, 9, -4}})));
+  }
 
-    // n: length, m: updates.length
-    // Space Complexity: O(n)
-    // Time Complexity: O(m + n)
-    private static class Solution {
-        public int[] getModifiedArray(int length, int[][] updates) {
-            int[] result = new int[length];
-            for (int[] range : updates) {
-                int start = range[0];
-                int end = range[1];
-                int value = range[2];
-                result[start] += value;
-                if (end < length - 1) {
-                    result[end + 1] -= value;
-                }
-            }
-
-            for (int i = 1; i < length; i++) {
-                result[i] += result[i - 1];
-            }
-
-            return result;
+  // n: length, m: updates.length
+  // Space Complexity: O(n)
+  // Time Complexity: O(m + n)
+  private static class Solution {
+    public int[] getModifiedArray(int length, int[][] updates) {
+      int[] result = new int[length];
+      for (int[] range : updates) {
+        int start = range[0];
+        int end = range[1];
+        int value = range[2];
+        result[start] += value;
+        if (end < length - 1) {
+          result[end + 1] -= value;
         }
+      }
+
+      for (int i = 1; i < length; i++) {
+        result[i] += result[i - 1];
+      }
+
+      return result;
     }
+  }
 }

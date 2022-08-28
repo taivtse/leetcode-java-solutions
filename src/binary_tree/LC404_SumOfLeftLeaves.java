@@ -10,39 +10,39 @@ import static utils.TreeBuilder.buildBinaryTree;
  * @since 2022/04/06 21:12:04
  */
 public class LC404_SumOfLeftLeaves {
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+  public static void main(String[] args) {
+    Solution solution = new Solution();
 
-        System.out.println(solution.sumOfLeftLeaves(buildBinaryTree(3, 9, 20, null, null, 15, 7)));
-        System.out.println(solution.sumOfLeftLeaves(buildBinaryTree(1)));
+    System.out.println(solution.sumOfLeftLeaves(buildBinaryTree(3, 9, 20, null, null, 15, 7)));
+    System.out.println(solution.sumOfLeftLeaves(buildBinaryTree(1)));
+  }
+
+  // n: nodes
+  // Space Complexity: O(n)
+  // Time Complexity: O(n)
+  private static class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+      return dfs(root, false);
     }
 
-    // n: nodes
-    // Space Complexity: O(n)
-    // Time Complexity: O(n)
-    private static class Solution {
-        public int sumOfLeftLeaves(TreeNode root) {
-            return dfs(root, false);
-        }
+    private int dfs(TreeNode node, boolean isLeft) {
+      TreeNode left = node.left;
+      TreeNode right = node.right;
+      if (left == null && right == null) {
+        return isLeft ? node.val : 0;
+      }
 
-        private int dfs(TreeNode node, boolean isLeft) {
-            TreeNode left = node.left;
-            TreeNode right = node.right;
-            if (left == null && right == null) {
-                return isLeft ? node.val : 0;
-            }
+      int rightVal = 0;
+      if (right != null) {
+        rightVal = dfs(right, false);
+      }
 
-            int rightVal = 0;
-            if (right != null) {
-                rightVal = dfs(right, false);
-            }
+      int leftVal = 0;
+      if (left != null) {
+        leftVal = dfs(left, true);
+      }
 
-            int leftVal = 0;
-            if (left != null) {
-                leftVal = dfs(left, true);
-            }
-
-            return leftVal + rightVal;
-        }
+      return leftVal + rightVal;
     }
+  }
 }

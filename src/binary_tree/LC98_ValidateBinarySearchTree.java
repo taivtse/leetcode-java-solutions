@@ -9,64 +9,64 @@ import utils.TreeNode;
  * @since 2022/04/17 21:17:14
  */
 public class LC98_ValidateBinarySearchTree {
-    public static void main(String[] args) {
-        Solution solution1 = new Solution();
-        System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
-        System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
+  public static void main(String[] args) {
+    Solution solution1 = new Solution();
+    System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
+    System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
 
-        Solution2 solution2 = new Solution2();
-        System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
-        System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
-        System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647)));
-        System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647, 2147483647)));
-        System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(-2147483648, -2147483648)));
+    Solution2 solution2 = new Solution2();
+    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
+    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
+    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647)));
+    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647, 2147483647)));
+    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(-2147483648, -2147483648)));
+  }
+
+  // Space Complexity: O(n)
+  // Time Complexity: O(n)
+  private static class Solution {
+    private Integer prev;
+    private boolean isValid;
+
+    public boolean isValidBST(TreeNode root) {
+      isValid = true;
+      check(root);
+      return isValid;
     }
 
-    // Space Complexity: O(n)
-    // Time Complexity: O(n)
-    private static class Solution {
-        private Integer prev;
-        private boolean isValid;
+    private void check(TreeNode node) {
+      if (node == null) {
+        return;
+      }
 
-        public boolean isValidBST(TreeNode root) {
-            isValid = true;
-            check(root);
-            return isValid;
-        }
+      check(node.left);
+      if (prev != null && prev >= node.val) {
+        isValid = false;
+        return;
+      } else {
+        prev = node.val;
+      }
+      check(node.right);
+    }
+  }
 
-        private void check(TreeNode node) {
-            if (node == null) {
-                return;
-            }
+  // Space Complexity: O(n)
+  // Time Complexity: O(n)
+  private static class Solution2 {
 
-            check(node.left);
-            if (prev != null && prev >= node.val) {
-                isValid = false;
-                return;
-            } else {
-                prev = node.val;
-            }
-            check(node.right);
-        }
+    public boolean isValidBST(TreeNode root) {
+      return check(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    // Space Complexity: O(n)
-    // Time Complexity: O(n)
-    private static class Solution2 {
+    private boolean check(TreeNode node, long min, long max) {
+      if (node == null) {
+        return true;
+      }
+      if (node.val <= min || node.val >= max) {
+        return false;
+      }
 
-        public boolean isValidBST(TreeNode root) {
-            return check(root, Long.MIN_VALUE, Long.MAX_VALUE);
-        }
-
-        private boolean check(TreeNode node, long min, long max) {
-            if (node == null) {
-                return true;
-            }
-            if (node.val <= min || node.val >= max) {
-                return false;
-            }
-
-            return check(node.left, min, node.val) && check(node.right, node.val, max);
-        }
+      return check(node.left, min, node.val) && check(node.right, node.val, max);
     }
+  }
 }

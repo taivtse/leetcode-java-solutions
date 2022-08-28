@@ -14,49 +14,49 @@ import static utils.TreeBuilder.buildBinaryTree;
  * @since 2022/04/11 22:12:46
  */
 public class LC508_MostFrequentSubtreeSum {
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.findFrequentTreeSum(buildBinaryTree(5, 2, -3))));
-        System.out.println(Arrays.toString(solution.findFrequentTreeSum(buildBinaryTree(5, 2, -5))));
+  public static void main(String[] args) {
+    Solution solution = new Solution();
+    System.out.println(Arrays.toString(solution.findFrequentTreeSum(buildBinaryTree(5, 2, -3))));
+    System.out.println(Arrays.toString(solution.findFrequentTreeSum(buildBinaryTree(5, 2, -5))));
+  }
+
+  // n: nodes
+  // Space Complexity: O(n)
+  // Time Complexity: O(n)
+  private static class Solution {
+    private final Map<Integer, Integer> treeSumFreqMap = new HashMap<>();
+    private int mostFreqTreeSum = 0;
+
+    public int[] findFrequentTreeSum(TreeNode root) {
+      calculateTreeSum(root);
+      return treeSumFreqMap.entrySet()
+          .stream()
+          .filter(entry -> entry.getValue() == mostFreqTreeSum)
+          .map(Map.Entry::getKey)
+          .mapToInt(Integer::intValue)
+          .toArray();
     }
 
-    // n: nodes
-    // Space Complexity: O(n)
-    // Time Complexity: O(n)
-    private static class Solution {
-        private final Map<Integer, Integer> treeSumFreqMap = new HashMap<>();
-        private int mostFreqTreeSum = 0;
+    private Integer calculateTreeSum(TreeNode node) {
+      if (node == null) {
+        return null;
+      }
 
-        public int[] findFrequentTreeSum(TreeNode root) {
-            calculateTreeSum(root);
-            return treeSumFreqMap.entrySet()
-                    .stream()
-                    .filter(entry -> entry.getValue() == mostFreqTreeSum)
-                    .map(Map.Entry::getKey)
-                    .mapToInt(Integer::intValue)
-                    .toArray();
-        }
+      int treeSum = node.val;
+      Integer leftSum = calculateTreeSum(node.left);
+      treeSum += leftSum != null ? leftSum : 0;
 
-        private Integer calculateTreeSum(TreeNode node) {
-            if (node == null) {
-                return null;
-            }
+      Integer rightSum = calculateTreeSum(node.right);
+      treeSum += rightSum != null ? rightSum : 0;
 
-            int treeSum = node.val;
-            Integer leftSum = calculateTreeSum(node.left);
-            treeSum += leftSum != null ? leftSum : 0;
+      int treeSumReq = treeSumFreqMap.getOrDefault(treeSum, 0) + 1;
+      treeSumFreqMap.put(treeSum, treeSumReq);
 
-            Integer rightSum = calculateTreeSum(node.right);
-            treeSum += rightSum != null ? rightSum : 0;
+      if (treeSumReq > mostFreqTreeSum) {
+        mostFreqTreeSum = treeSumReq;
+      }
 
-            int treeSumReq = treeSumFreqMap.getOrDefault(treeSum, 0) + 1;
-            treeSumFreqMap.put(treeSum, treeSumReq);
-
-            if (treeSumReq > mostFreqTreeSum) {
-                mostFreqTreeSum = treeSumReq;
-            }
-
-            return treeSum;
-        }
+      return treeSum;
     }
+  }
 }
