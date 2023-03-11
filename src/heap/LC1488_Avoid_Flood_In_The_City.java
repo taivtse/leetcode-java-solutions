@@ -21,8 +21,8 @@ public class LC1488_Avoid_Flood_In_The_City {
   }
 
   /*
-   * Space complexity:
-   * Time complexity:
+   * Space complexity: O(n)
+   * Time complexity: O(nlog(n))
    */
   private static class Solution {
     public int[] avoidFlood(int[] rains) {
