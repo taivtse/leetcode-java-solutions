@@ -5,8 +5,8 @@ package string;
  * @problem 1704. Determine if String Halves Are Alike
  * @link https://leetcode.com/problems/determine-if-string-halves-are-alike/
  * @submission https://leetcode.com/problems/determine-if-string-halves-are-alike/submissions/913142208/
- * @difficulty easy
- * @tags String Counting
+ * @difficulty Easy
+ * @tags String, Counting
  * @since 2023/03/11 16:16:07
  */
 public class LC704_DetermineIfStringHalvesAreAlike {
