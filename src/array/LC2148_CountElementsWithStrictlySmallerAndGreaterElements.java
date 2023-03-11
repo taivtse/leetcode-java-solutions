@@ -4,7 +4,8 @@ package array;
  * @author taivt
  * @link https://leetcode.com/problems/count-elements-with-strictly-smaller-and-greater-elements/
  * @submission https://leetcode.com/problems/count-elements-with-strictly-smaller-and-greater-elements/submissions/882953189/
- * @tag #Easy #Array #Sorting
+ * @difficulty easy
+ * @tags Array Sorting
  * @since 2023/01/22 15:00:26
  */
 public class LC2148_CountElementsWithStrictlySmallerAndGreaterElements {
