@@ -9,7 +9,7 @@ import java.util.Queue;
  * @author taivt
  * @since 2022/04/13 23:20:02
  */
-public class TreeBuilder {
+public class TreeUtil {
 
   public static TreeNode buildBinaryTree(Integer... nodes) {
     if (nodes.length == 0) {

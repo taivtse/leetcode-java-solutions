@@ -5,7 +5,7 @@ import utils.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.TreeBuilder.buildBinaryTree;
+import static utils.TreeUtil.buildBinaryTree;
 
 /**
  * @author taivt

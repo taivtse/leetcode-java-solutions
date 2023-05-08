@@ -2,7 +2,7 @@ package binary_tree.bst;
 
 import utils.TreeNode;
 
-import static utils.TreeBuilder.buildBinaryTree;
+import static utils.TreeUtil.buildBinaryTree;
 
 /**
  * @author taivt

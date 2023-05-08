@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static utils.TreeBuilder.buildBinaryTree;
+import static utils.TreeUtil.buildBinaryTree;
 
 /**
  * @author taivt

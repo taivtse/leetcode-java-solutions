@@ -2,8 +2,8 @@ package binary_tree;
 
 import utils.TreeNode;
 
-import static utils.TreeBuilder.buildBinaryTree;
-import static utils.TreeBuilder.toArray;
+import static utils.TreeUtil.buildBinaryTree;
+import static utils.TreeUtil.toArray;
 
 /**
  * @author taivt

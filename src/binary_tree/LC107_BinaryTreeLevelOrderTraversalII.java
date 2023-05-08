@@ -4,7 +4,7 @@ import utils.TreeNode;
 
 import java.util.*;
 
-import static utils.TreeBuilder.buildBinaryTree;
+import static utils.TreeUtil.buildBinaryTree;
 
 /**
  * @author taivt

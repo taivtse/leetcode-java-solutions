@@ -1,6 +1,6 @@
 package binary_tree;
 
-import utils.TreeBuilder;
+import utils.TreeUtil;
 import utils.TreeNode;
 
 /**
@@ -11,15 +11,15 @@ import utils.TreeNode;
 public class LC98_ValidateBinarySearchTree {
   public static void main(String[] args) {
     Solution solution1 = new Solution();
-    System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
-    System.out.println(solution1.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
+    System.out.println(solution1.isValidBST(TreeUtil.buildBinaryTree(2, 1, 3)));
+    System.out.println(solution1.isValidBST(TreeUtil.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
 
     Solution2 solution2 = new Solution2();
-    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2, 1, 3)));
-    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
-    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647)));
-    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(2147483647, 2147483647)));
-    System.out.println(solution2.isValidBST(TreeBuilder.buildBinaryTree(-2147483648, -2147483648)));
+    System.out.println(solution2.isValidBST(TreeUtil.buildBinaryTree(2, 1, 3)));
+    System.out.println(solution2.isValidBST(TreeUtil.buildBinaryTree(5, 1, 4, null, null, 3, 6)));
+    System.out.println(solution2.isValidBST(TreeUtil.buildBinaryTree(2147483647)));
+    System.out.println(solution2.isValidBST(TreeUtil.buildBinaryTree(2147483647, 2147483647)));
+    System.out.println(solution2.isValidBST(TreeUtil.buildBinaryTree(-2147483648, -2147483648)));
   }
 
   // Space Complexity: O(n)
