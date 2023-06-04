@@ -1,5 +1,9 @@
 package linked_list;
 
+import utils.ListNode;
+
+import static utils.LinkedListUtil.buildLinkedList;
+
 /**
  * @author taivt
  * @link https://leetcode.com/problems/sort-list/
@@ -7,28 +11,9 @@ package linked_list;
  */
 public class LC148_SortList {
   public static void main(String[] args) {
-    ListNode node1 = new ListNode(3);
-    ListNode node2 = new ListNode(2);
-    ListNode node3 = new ListNode(4);
-    ListNode node4 = new ListNode(4);
-    ListNode node5 = new ListNode(0);
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-    node4.next = node5;
-
-    ListNode head = new Solution().sortList(node1);
+    ListNode head = new Solution().sortList(buildLinkedList(3, 2, 4, 4, 0));
     System.out.println("After sorted: ");
     Solution.print(head);
-  }
-
-  private static class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int val) {
-      this.val = val;
-    }
   }
 
   // Space Complexity: O(1)

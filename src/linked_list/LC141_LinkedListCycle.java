@@ -1,5 +1,9 @@
 package linked_list;
 
+import utils.ListNode;
+
+import static utils.LinkedListUtil.buildCycleLinkedList;
+
 /**
  * @author taivt
  * @link https://leetcode.com/problems/linked-list-cycle/
@@ -7,16 +11,8 @@ package linked_list;
  */
 public class LC141_LinkedListCycle {
   public static void main(String[] args) {
-    ListNode node1 = new ListNode(3);
-    ListNode node2 = new ListNode(2);
-    ListNode node3 = new ListNode(0);
-    ListNode node4 = new ListNode(-4);
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-    node4.next = node2;
-
-    System.out.println(new Solution().hasCycle(node1));
+    Solution solution = new Solution();
+    System.out.println(solution.hasCycle(buildCycleLinkedList(3, 2, 0, -4)));
   }
 
   // Space Complexity: O(1)
@@ -38,13 +34,4 @@ public class LC141_LinkedListCycle {
     }
   }
 
-  private static class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
-  }
 }

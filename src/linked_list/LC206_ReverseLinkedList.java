@@ -1,5 +1,9 @@
 package linked_list;
 
+import utils.ListNode;
+
+import static utils.LinkedListUtil.buildLinkedList;
+
 /**
  * @author taivt
  * @link https://leetcode.com/problems/reverse-linked-list/
@@ -8,20 +12,9 @@ package linked_list;
 public class LC206_ReverseLinkedList {
 
   public static void main(String[] args) {
-    ListNode node1 = new ListNode(1);
-    ListNode node2 = new ListNode(2);
-    ListNode node3 = new ListNode(3);
-    ListNode node4 = new ListNode(4);
-    ListNode node5 = new ListNode(5);
-    node1.next = node2;
-    node2.next = node3;
-    node3.next = node4;
-    node4.next = node5;
-
-    node1.print();
-
-    ListNode head = new Solution().recursiveReverseList(node1);
-    head.print();
+    Solution solution = new Solution();
+    ListNode head = solution.recursiveReverseList(buildLinkedList(1, 2, 3, 4, 5));
+    System.out.println(head);
   }
 
   // Space Complexity: O(1)
@@ -51,29 +44,4 @@ public class LC206_ReverseLinkedList {
     }
   }
 
-  private static class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-      this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-      this.val = val;
-      this.next = next;
-    }
-
-    void print() {
-      ListNode iterator = this;
-      while (iterator != null) {
-        System.out.printf("%d ", iterator.val);
-        iterator = iterator.next;
-      }
-      System.out.println();
-    }
-  }
 }
