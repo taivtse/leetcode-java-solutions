@@ -8,7 +8,7 @@ import static utils.LinkedListUtil.buildLinkedList;
  * @author taivt
  * @problem 1721. Swapping Nodes in a Linked List
  * @link https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
- * @submission https://leetcode.com/problems/swapping-nodes-in-a-linked-list/submissions/963639189/
+ * @submission https://leetcode.com/problems/swapping-nodes-in-a-linked-list/submissions/963676862/
  * @difficulty Medium
  * @tags Linked List, Two Pointers
  * @since 2023/06/04 17:36:34
@@ -28,8 +28,7 @@ public class LC1721_SwappingNodesInALinkedList {
   private static class Solution {
     public ListNode swapNodes(ListNode head, int k) {
       ListNode itr = head;
-      int count = 1;
-      while (count++ < k) {
+      for (int i = 1; i < k; i++) {
         itr = itr.next;
       }
 
