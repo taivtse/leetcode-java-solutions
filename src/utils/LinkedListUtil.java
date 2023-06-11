@@ -1,7 +1,9 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author taivt
@@ -14,6 +16,16 @@ public class LinkedListUtil {
 
   public static ListNode buildCycleLinkedList(Integer... nodes) {
     return build(true, nodes);
+  }
+
+  public static List<Integer> toArray(ListNode head) {
+    List<Integer> values = new ArrayList<>();
+    ListNode cur = head;
+    while (cur != null) {
+      values.add(cur.val);
+      cur = cur.next;
+    }
+    return values;
   }
 
   private static ListNode build(boolean isCycle, Integer... nodes) {

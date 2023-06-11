@@ -1,7 +1,6 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import static utils.LinkedListUtil.toArray;
 
 public class ListNode {
   public int val;
@@ -21,12 +20,6 @@ public class ListNode {
 
   @Override
   public String toString() {
-    List<Integer> values = new ArrayList<>();
-    ListNode cur = this;
-    while (cur != null) {
-      values.add(cur.val);
-      cur = cur.next;
-    }
-    return values.toString();
+    return toArray(this).toString();
   }
 }

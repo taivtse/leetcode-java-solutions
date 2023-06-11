@@ -3,7 +3,6 @@ package binary_tree;
 import utils.TreeNode;
 
 import static utils.TreeUtil.buildBinaryTree;
-import static utils.TreeUtil.toArray;
 
 /**
  * @author taivt
@@ -14,11 +13,11 @@ public class LC226_InvertBinaryTree {
   public static void main(String[] args) {
     Solution solution = new Solution();
     TreeNode newTree1 = solution.invertTree(buildBinaryTree(4, 2, 7, 1, 3, 6, 9));
-    System.out.println(toArray(newTree1));
+    System.out.println(newTree1);
     TreeNode newTree2 = solution.invertTree(buildBinaryTree(2, 1, 3));
-    System.out.println(toArray(newTree2));
+    System.out.println(newTree2);
     TreeNode newTree3 = solution.invertTree(buildBinaryTree());
-    System.out.println(toArray(newTree3));
+    System.out.println(newTree3);
   }
 
   // Space Complexity: O(n)

@@ -3,7 +3,6 @@ package binary_tree;
 import utils.TreeNode;
 
 import static utils.TreeUtil.buildBinaryTree;
-import static utils.TreeUtil.toArray;
 
 /**
  * @author taivt
@@ -14,9 +13,9 @@ public class LC669_TrimABinarySearchTree {
   public static void main(String[] args) {
     Solution solution = new Solution();
     TreeNode newTree1 = solution.trimBST(buildBinaryTree(1, 0, 2), 1, 2);
-    System.out.println(toArray(newTree1));
+    System.out.println(newTree1);
     TreeNode newTree2 = solution.trimBST(buildBinaryTree(3, 0, 4, null, 2, null, null, 1), 4, 4);
-    System.out.println(toArray(newTree2));
+    System.out.println(newTree2);
   }
 
   // Space Complexity: O(n)

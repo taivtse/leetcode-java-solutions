@@ -1,5 +1,7 @@
 package utils;
 
+import static utils.TreeUtil.toArray;
+
 /**
  * @author taivt
  * @since 2022/04/14 00:28:30
@@ -24,6 +26,6 @@ public class TreeNode {
 
   @Override
   public String toString() {
-    return "TreeNode->val=" + val;
+    return toArray(this).toString();
   }
 }
